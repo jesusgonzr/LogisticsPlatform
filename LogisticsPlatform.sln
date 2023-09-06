@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogisticsPlatform", "LogisticsPlatform\LogisticsPlatform.csproj", "{9419B198-A5AA-4EBA-931A-57E79769416F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogisticsPlatform", "LogisticsPlatform\LogisticsPlatform.csproj", "{9419B198-A5AA-4EBA-931A-57E79769416F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogisticsPlatform.Test", "LogisticsPlatform.Test\LogisticsPlatform.Test.csproj", "{2F9B31D0-0B2E-4BD6-9A00-C6F2A79CBA3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogisticsPlatform.Test", "LogisticsPlatform.Test\LogisticsPlatform.Test.csproj", "{2F9B31D0-0B2E-4BD6-9A00-C6F2A79CBA3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogisticsPlatform.Application", "LogisticsPlatform.Application\LogisticsPlatform.Application.csproj", "{127A9D24-87B6-4724-BE59-B32B904EB6AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{2F9B31D0-0B2E-4BD6-9A00-C6F2A79CBA3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F9B31D0-0B2E-4BD6-9A00-C6F2A79CBA3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F9B31D0-0B2E-4BD6-9A00-C6F2A79CBA3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{127A9D24-87B6-4724-BE59-B32B904EB6AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{127A9D24-87B6-4724-BE59-B32B904EB6AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{127A9D24-87B6-4724-BE59-B32B904EB6AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{127A9D24-87B6-4724-BE59-B32B904EB6AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
