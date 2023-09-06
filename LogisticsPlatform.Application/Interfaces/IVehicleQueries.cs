@@ -12,5 +12,7 @@ namespace LogisticsPlatform.Application.Interfaces
         IEnumerable<VehicleViewModel> GetAll();
 
         VehicleViewModel GetbyId(Guid id);
+
+        IEnumerable<VehicleViewModel> GetByProduct(Guid productId);
     }
 }

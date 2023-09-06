@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogisticsPlatform.Application.Command
+namespace LogisticsPlatform.Application.Command.Vehicle
 {
     public class UpdateLocationVehicleCommandHandler : IRequestHandler<UpdateLocationVehicleCommand, VehicleViewModel>
     {

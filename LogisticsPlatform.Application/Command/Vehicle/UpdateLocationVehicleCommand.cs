@@ -6,9 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogisticsPlatform.Application.Command
+namespace LogisticsPlatform.Application.Command.Vehicle
 {
-    public class AddOrderVehicleCommand : IRequest<VehicleViewModel>
+    public class UpdateLocationVehicleCommand : IRequest<VehicleViewModel>
     {
+        public Guid Id { get; set; }
     }
 }

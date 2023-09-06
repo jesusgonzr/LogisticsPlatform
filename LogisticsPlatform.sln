@@ -7,7 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogisticsPlatform", "Logist
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogisticsPlatform.Test", "LogisticsPlatform.Test\LogisticsPlatform.Test.csproj", "{2F9B31D0-0B2E-4BD6-9A00-C6F2A79CBA3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogisticsPlatform.Application", "LogisticsPlatform.Application\LogisticsPlatform.Application.csproj", "{127A9D24-87B6-4724-BE59-B32B904EB6AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogisticsPlatform.Application", "LogisticsPlatform.Application\LogisticsPlatform.Application.csproj", "{127A9D24-87B6-4724-BE59-B32B904EB6AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogisticsPlatform.API", "LogisticsPlatform.API\LogisticsPlatform.API.csproj", "{D4E4EC83-6BFE-48AB-8ECF-741F4F89FB7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogisticsPlatform.Infrastructure", "LogisticsPlatform.Infrastructure\LogisticsPlatform.Infrastructure.csproj", "{474E4E1E-3AB8-43AA-AC85-7F1ABF172B16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{127A9D24-87B6-4724-BE59-B32B904EB6AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{127A9D24-87B6-4724-BE59-B32B904EB6AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{127A9D24-87B6-4724-BE59-B32B904EB6AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4E4EC83-6BFE-48AB-8ECF-741F4F89FB7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4E4EC83-6BFE-48AB-8ECF-741F4F89FB7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4E4EC83-6BFE-48AB-8ECF-741F4F89FB7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4E4EC83-6BFE-48AB-8ECF-741F4F89FB7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{474E4E1E-3AB8-43AA-AC85-7F1ABF172B16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{474E4E1E-3AB8-43AA-AC85-7F1ABF172B16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{474E4E1E-3AB8-43AA-AC85-7F1ABF172B16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{474E4E1E-3AB8-43AA-AC85-7F1ABF172B16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

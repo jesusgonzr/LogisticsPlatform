@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogisticsPlatform.Application.Command
+namespace LogisticsPlatform.Application.Command.Vehicle
 {
-    public class UpdateLocationVehicleCommand : IRequest<VehicleViewModel>
+    public class CreateVehicleCommand : IRequest<VehicleViewModel>
     {
     }
 }
