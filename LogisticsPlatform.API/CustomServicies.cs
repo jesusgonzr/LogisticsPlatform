@@ -29,6 +29,9 @@ namespace LogisticsPlatform.API
             services.AddScoped<Application.Interfaces.IVehicleRepository, Infrastructure.Rpositories.VehicleRepository>();
             services.AddScoped<Application.Interfaces.IVehicleRepositoryQueries, Infrastructure.Queries.VehicleRepositoryQueries>();
 
+            services.AddTransient<Application.Interfaces.IOrderQueries, Application.Queries.OrderQueries>();
+            services.AddScoped<Application.Interfaces.IOrderRepositoryQueries, Infrastructure.Queries.OrderRepositoryQueries>();
+
             // Add auto mapper
             services.AddAutoMapper(typeof(Application.Mapping.MappingProfile));
 

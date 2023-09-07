@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using LogisticsPlatform.Application.Models;
+using LogisticsPlatform.Orders;
 using LogisticsPlatform.Vehicles;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,9 @@ namespace LogisticsPlatform.Application.Mapping
         {
             _ = this.CreateMap<Vehicle, VehicleViewModel>();
             _ = this.CreateMap<VehicleViewModel, Vehicle>();
+
+            _ = this.CreateMap<OrderViewModel, Order>();
+            _ = this.CreateMap<Order, OrderViewModel>();
         }
     }
 }
