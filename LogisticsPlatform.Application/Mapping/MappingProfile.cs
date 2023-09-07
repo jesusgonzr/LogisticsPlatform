@@ -22,6 +22,9 @@ namespace LogisticsPlatform.Application.Mapping
 
             _ = this.CreateMap<OrderViewModel, Order>();
             _ = this.CreateMap<Order, OrderViewModel>();
+
+            _ = this.CreateMap<LocationViewModel, Location>();
+            _ = this.CreateMap<Location, LocationViewModel>();
         }
     }
 }
