@@ -10,5 +10,6 @@ namespace LogisticsPlatform.Application.Command.Vehicle
 {
     public class CreateVehicleCommand : IRequest<VehicleViewModel>
     {
+        public List<OrderRequestCommand>? Orders { get; set; }
     }
 }

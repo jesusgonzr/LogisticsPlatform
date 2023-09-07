@@ -1,6 +1,7 @@
 ﻿using LogisticsPlatform.Application.Interfaces;
 using LogisticsPlatform.Application.Models;
 using LogisticsPlatform.Vehicles;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,17 +21,27 @@ namespace LogisticsPlatform.Infrastructure.Queries
 
         public IEnumerable<Vehicle> GetAll()
         {
-            return this.context.Vehicles.ToList();
+            var reuslt = this.context.Vehicles
+                .Include(f => f.OrdersItem)
+                .Include(f => f.Locations)
+                .ToList();
+            return reuslt;
         }
 
         public Vehicle GetbyId(Guid id)
         {
-            return context.Vehicles.FirstOrDefault(c => c.Id == id);
+            return context.Vehicles
+                .Include(f => f.OrdersItem)
+                .Include(f => f.Locations)
+                .FirstOrDefault(c => c.Id == id);
         }
 
         public IEnumerable<Vehicle> GetByOrderId(Guid orderId)
         {
-            return this.context.Vehicles.Where(c => c.OrdersItem.Where(c => c.Id == orderId).Any()).ToList();
+            return this.context.Vehicles
+                .Include(f => f.OrdersItem)
+                .Include(f => f.Locations)
+                .Where(c => c.OrdersItem.Where(c => c.Id == orderId).Any()).ToList();
         }
     }
 }
