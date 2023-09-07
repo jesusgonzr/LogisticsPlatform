@@ -23,10 +23,31 @@ namespace LogisticsPlatform.API.Controllers
 
         [HttpGet("")]
         [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.NotFound)]
-        [ProducesResponseType(typeof(List<VehicleViewModel>), (int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(List<OrderViewModel>), (int)HttpStatusCode.OK)]
         public IActionResult GetAll()
         {
             var result = this.queries.GetAll();
+            if (result != null)
+            {
+                return this.Ok(result);
+            }
+            else
+            {
+                return this.NotFound();
+            }
+        }
+
+        [HttpGet("{id:guid}")]
+        [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.NotFound)]
+        [ProducesResponseType(typeof(OrderViewModel), (int)HttpStatusCode.OK)]
+        public IActionResult GetById(Guid id)
+        {
+            if (id == Guid.Empty)
+            {
+                return BadRequest();
+            }
+
+            var result = this.queries.GetById(id);
             if (result != null)
             {
                 return this.Ok(result);

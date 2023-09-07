@@ -21,5 +21,10 @@ namespace LogisticsPlatform.Infrastructure.Queries
         {
             return this.context.Orders.ToList();
         }
+
+        public Order GetById(Guid id)
+        {
+            return context.Orders.FirstOrDefault(c => c.Id == id);
+        }
     }
 }

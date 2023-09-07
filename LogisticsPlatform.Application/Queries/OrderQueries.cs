@@ -19,5 +19,10 @@ namespace LogisticsPlatform.Application.Queries
         {
             return this.mapper.Map<IEnumerable<OrderViewModel>>(this.queries.GetAll());
         }
+
+        public OrderViewModel GetById(Guid id)
+        {
+            return this.mapper.Map<OrderViewModel>(this.queries.GetById(id));
+        }
     }
 }
