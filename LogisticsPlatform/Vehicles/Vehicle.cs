@@ -13,9 +13,16 @@ namespace LogisticsPlatform.Vehicles
         private List<Order> orderItems;
         private List<Location> locations;
 
+
+        public Vehicle(Guid id)
+            : this() => Id = id;
+
         public Vehicle()
         {
-            Id = Guid.NewGuid();
+            if (Id == Guid.Empty)
+            {
+                Id = Guid.NewGuid();
+            }
             this.orderItems = new List<Order>();
             this.locations = new List<Location>();
         }

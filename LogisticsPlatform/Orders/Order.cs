@@ -9,14 +9,15 @@ namespace LogisticsPlatform.Orders
 {
     public class Order : Entity, IAggregateRoot
     {
-        public Order() 
-        { 
-            Id = Guid.NewGuid();
-            Date = DateTime.Now;
-        }
+        public Order() : this(Guid.NewGuid(), DateTime.Now) { }
 
-        public Order(DateTime date)
-            : this() => Date = date == DateTime.MinValue ? throw new ArgumentNullException(nameof(date)) : date;
+        public Order(DateTime date) : this(Guid.NewGuid(), date) { }
+
+        public Order(Guid id, DateTime date)
+        {
+            Id = id == Guid.Empty ? Guid.NewGuid() : id;
+            Date = date == DateTime.MinValue ? throw new ArgumentNullException(nameof(date)) : date;
+        }
 
         public DateTime Date { get; protected set; }
     }

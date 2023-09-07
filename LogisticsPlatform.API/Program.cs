@@ -1,5 +1,6 @@
 using LogisticsPlatform.API;
 using LogisticsPlatform.Infrastructure;
+using LogisticsPlatform.Infrastructure.PredefinedData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,6 +9,7 @@ using Microsoft.OpenApi.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddTransient<DataSeeder>();
 
 // Load database context
 builder.Services.AddDbContext<LogisticsPlatformContext>(
@@ -36,6 +38,19 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddApplication();
 
 var app = builder.Build();
+
+SeedData(app);
+
+static void SeedData(IHost app)
+{
+    var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
+    if (scopedFactory != null)
+    {
+        using var scope = scopedFactory.CreateScope();
+        var service = scope.ServiceProvider.GetService<DataSeeder>();
+        service?.Seed();
+    }
+}
 
 app.UseCors();
 
