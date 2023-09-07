@@ -75,7 +75,7 @@ namespace LogisticsPlatform.API.Controllers
                 return BadRequest();
             }
 
-            var result = this.queries.GetByProduct(productId);
+            var result = this.queries.GetByOrderId(productId);
             if (result != null)
             {
                 return this.Ok(result);

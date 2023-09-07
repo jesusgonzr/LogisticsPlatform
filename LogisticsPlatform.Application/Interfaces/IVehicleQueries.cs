@@ -13,6 +13,6 @@ namespace LogisticsPlatform.Application.Interfaces
 
         VehicleViewModel GetbyId(Guid id);
 
-        IEnumerable<VehicleViewModel> GetByProduct(Guid productId);
+        IEnumerable<VehicleViewModel> GetByOrderId(Guid orderId);
     }
 }

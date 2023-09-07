@@ -31,9 +31,9 @@ namespace LogisticsPlatform.Application.Queries
             return this.mapper.Map<VehicleViewModel>(this.query.GetbyId(id));
         }
 
-        public IEnumerable<VehicleViewModel> GetByProduct(Guid productId)
+        public IEnumerable<VehicleViewModel> GetByOrderId(Guid orderId)
         {
-            return this.mapper.Map<IEnumerable<VehicleViewModel>>(this.query.GetByProduct(productId));
+            return this.mapper.Map<IEnumerable<VehicleViewModel>>(this.query.GetByOrderId(orderId));
         }
     }
 }

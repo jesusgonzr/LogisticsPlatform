@@ -28,9 +28,9 @@ namespace LogisticsPlatform.Infrastructure.Queries
             return context.Vehicles.FirstOrDefault(c => c.Id == id);
         }
 
-        public IEnumerable<Vehicle> GetByProduct(Guid productId)
+        public IEnumerable<Vehicle> GetByOrderId(Guid orderId)
         {
-            return this.context.Vehicles.Where(c => c.OrdersItem.Where(c => c.Id == productId).Any()).ToList();
+            return this.context.Vehicles.Where(c => c.OrdersItem.Where(c => c.Id == orderId).Any()).ToList();
         }
     }
 }
