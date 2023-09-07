@@ -27,7 +27,7 @@ namespace LogisticsPlatform.API
             // Add IoC references.
             services.AddTransient<Application.Interfaces.IVehicleQueries, Application.Queries.VehicleQueries>();
             services.AddScoped<Application.Interfaces.IVehicleRepository, Infrastructure.Rpositories.VehicleRepository>();
-            services.AddScoped<Application.Interfaces.IVehicleQueries, Infrastructure.Queries.VehicleRepositoryQueries>();
+            services.AddScoped<Application.Interfaces.IVehicleRepositoryQueries, Infrastructure.Queries.VehicleRepositoryQueries>();
 
             // Add auto mapper
             services.AddAutoMapper(typeof(Application.Mapping.MappingProfile));

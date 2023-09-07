@@ -9,6 +9,6 @@ namespace LogisticsPlatform.Application.Models
     public class VehicleViewModel : BaseModelViewModel
     {
         public List<LocationViewModel>? Locations { get; set; }
-        public List<OrderViewModel>? Orders { get; set; }
+        public List<OrderViewModel>? OrdersItem { get; set; }
     }
 }

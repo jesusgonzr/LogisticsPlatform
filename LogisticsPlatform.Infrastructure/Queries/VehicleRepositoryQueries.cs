@@ -11,19 +11,26 @@ namespace LogisticsPlatform.Infrastructure.Queries
 {
     public class VehicleRepositoryQueries : IVehicleRepositoryQueries
     {
+        private readonly LogisticsPlatformContext context;
+
+        public VehicleRepositoryQueries(LogisticsPlatformContext context)
+        {
+            this.context = context ?? throw new ArgumentNullException(nameof(context));
+        }
+
         public IEnumerable<Vehicle> GetAll()
         {
-            throw new NotImplementedException();
+            return this.context.Vehicles.ToList();
         }
 
         public Vehicle GetbyId(Guid id)
         {
-            throw new NotImplementedException();
+            return context.Vehicles.FirstOrDefault(c => c.Id == id);
         }
 
         public IEnumerable<Vehicle> GetByProduct(Guid productId)
         {
-            throw new NotImplementedException();
+            return this.context.Vehicles.Where(c => c.OrdersItem.Where(c => c.Id == productId).Any()).ToList();
         }
     }
 }

@@ -44,11 +44,16 @@ namespace LogisticsPlatform.API.Controllers
             }
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id:guid}")]
         [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.NotFound)]
         [ProducesResponseType(typeof(VehicleViewModel), (int)HttpStatusCode.OK)]
         public IActionResult GetById(Guid id)
         {
+            if (id == Guid.Empty)
+            {
+                return BadRequest();
+            }
+            
             var result = this.queries.GetbyId(id);
             if (result != null)
             {
@@ -60,11 +65,16 @@ namespace LogisticsPlatform.API.Controllers
             }
         }
 
-        [HttpGet("productId")]
+        [HttpGet("{productId:guid}")]
         [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.NotFound)]
         [ProducesResponseType(typeof(VehicleViewModel), (int)HttpStatusCode.OK)]
         public IActionResult GetByProductId(Guid productId)
         {
+            if (productId == Guid.Empty)
+            {
+                return BadRequest();
+            }
+
             var result = this.queries.GetByProduct(productId);
             if (result != null)
             {
