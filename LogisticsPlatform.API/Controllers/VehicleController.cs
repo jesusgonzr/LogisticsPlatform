@@ -65,17 +65,17 @@ namespace LogisticsPlatform.API.Controllers
             }
         }
 
-        [HttpGet("{productId:guid}")]
+        [HttpGet("{orderId:guid}")]
         [ProducesResponseType(typeof(ProblemDetails), (int)HttpStatusCode.NotFound)]
         [ProducesResponseType(typeof(VehicleViewModel), (int)HttpStatusCode.OK)]
-        public IActionResult GetByProductId(Guid productId)
+        public IActionResult GetByOrderId(Guid orderId)
         {
-            if (productId == Guid.Empty)
+            if (orderId == Guid.Empty)
             {
                 return BadRequest();
             }
 
-            var result = this.queries.GetByOrderId(productId);
+            var result = this.queries.GetByOrderId(orderId);
             if (result != null)
             {
                 return this.Ok(result);
