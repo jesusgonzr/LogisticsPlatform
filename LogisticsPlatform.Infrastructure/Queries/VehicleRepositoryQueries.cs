@@ -22,7 +22,7 @@ namespace LogisticsPlatform.Infrastructure.Queries
         public IEnumerable<Vehicle> GetAll()
         {
             var reuslt = this.context.Vehicles
-                .Include(f => f.OrdersItem)
+                .Include(f => f.Orders)
                 .Include(f => f.Locations)
                 .ToList();
             return reuslt;
@@ -31,7 +31,7 @@ namespace LogisticsPlatform.Infrastructure.Queries
         public Vehicle GetbyId(Guid id)
         {
             return context.Vehicles
-                .Include(f => f.OrdersItem)
+                .Include(f => f.Orders)
                 .Include(f => f.Locations)
                 .FirstOrDefault(c => c.Id == id);
         }
@@ -39,9 +39,9 @@ namespace LogisticsPlatform.Infrastructure.Queries
         public IEnumerable<Vehicle> GetByOrderId(Guid orderId)
         {
             return this.context.Vehicles
-                .Include(f => f.OrdersItem)
+                .Include(f => f.Orders)
                 .Include(f => f.Locations)
-                .Where(c => c.OrdersItem.Where(c => c.Id == orderId).Any()).ToList();
+                .Where(c => c.Orders.Where(c => c.Id == orderId).Any()).ToList();
         }
     }
 }

@@ -32,7 +32,7 @@ namespace LogisticsPlatform.Test
             result.AddOrder(new Orders.Order());
             
             Assert.NotNull(result);
-            Assert.True(result.OrdersItem.Count == 1);
+            Assert.True(result.Orders.Count == 1);
 
             this.output.WriteLine(JsonConvert.SerializeObject(result));
         }
@@ -46,13 +46,13 @@ namespace LogisticsPlatform.Test
             result.AddOrder(new Orders.Order());
 
             Assert.NotNull(result);
-            Assert.True(result.OrdersItem.Count == 3);
+            Assert.True(result.Orders.Count == 3);
             this.output.WriteLine(JsonConvert.SerializeObject(result));
 
-            var removeOrder = result.OrdersItem.FirstOrDefault();
+            var removeOrder = result.Orders.FirstOrDefault();
             Assert.NotNull(removeOrder);
             result.RemoveOrder(removeOrder);
-            Assert.True(result.OrdersItem.Count == 2);
+            Assert.True(result.Orders.Count == 2);
             this.output.WriteLine(JsonConvert.SerializeObject(result));
 
         }

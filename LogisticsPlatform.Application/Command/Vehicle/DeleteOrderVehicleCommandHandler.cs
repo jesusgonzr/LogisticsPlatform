@@ -44,7 +44,7 @@ namespace LogisticsPlatform.Application.Command.Vehicle
                     throw new Exception(menssage);
                 }
 
-                var order = vehicleData.OrdersItem.Where(o => o.Id == request.OrderId).FirstOrDefault();
+                var order = vehicleData.Orders.Where(o => o.Id == request.OrderId).FirstOrDefault();
                 if (order == null)
                 {
                     string menssage = $"El producto {request.OrderId} no existe en este vehiculo.";

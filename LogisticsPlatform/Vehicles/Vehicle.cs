@@ -10,7 +10,7 @@ namespace LogisticsPlatform.Vehicles
 {
     public class Vehicle : Entity, IAggregateRoot
     {
-        private List<Order> orderItems;
+        private List<Order> orders;
         private List<Location> locations;
 
 
@@ -23,22 +23,22 @@ namespace LogisticsPlatform.Vehicles
             {
                 Id = Guid.NewGuid();
             }
-            this.orderItems = new List<Order>();
+            this.orders = new List<Order>();
             this.locations = new List<Location>();
         }
 
-        public IReadOnlyCollection<Order> OrdersItem => this.orderItems;
+        public IReadOnlyCollection<Order> Orders => this.orders;
 
         public IReadOnlyCollection<Location> Locations => this.locations;
 
         public void AddOrder(Order order)
         {
-            this.orderItems.Add(order);
+            this.orders.Add(order);
         }
 
         public void RemoveOrder(Order order) 
         { 
-            this.orderItems.Remove(order);
+            this.orders.Remove(order);
         }
 
         public void AddLocation(double latitude, double longitude)
