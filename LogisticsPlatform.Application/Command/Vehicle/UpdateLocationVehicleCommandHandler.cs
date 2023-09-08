@@ -12,14 +12,17 @@ namespace LogisticsPlatform.Application.Command.Vehicle
         private readonly IVehicleRepository repository;
         private readonly IVehicleRepositoryQueries vehicleRepositoryQueries;
         private readonly ILogger<UpdateLocationVehicleCommandHandler> logger;
+        private readonly INotificationServices notificationServices;
 
         public UpdateLocationVehicleCommandHandler(IMapper mapper, ILogger<UpdateLocationVehicleCommandHandler> logger,
-            IVehicleRepository repository, IVehicleRepositoryQueries vehicleRepositoryQueries)
+            IVehicleRepository repository, IVehicleRepositoryQueries vehicleRepositoryQueries,
+            INotificationServices notificationServices)
         {
             this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             this.repository = repository ?? throw new ArgumentNullException(nameof(repository));
             this.vehicleRepositoryQueries = vehicleRepositoryQueries ?? throw new ArgumentNullException(nameof(vehicleRepositoryQueries));
             this.logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            this.notificationServices = notificationServices ?? throw new ArgumentNullException(nameof(notificationServices));
         }
 
         public Task<VehicleViewModel> Handle(UpdateLocationVehicleCommand request, CancellationToken cancellationToken)
@@ -42,6 +45,18 @@ namespace LogisticsPlatform.Application.Command.Vehicle
                 vehicleData.AddLocation(request.Latitude, request.Longitude);
 
                 repository.Update(vehicleData);
+
+                try
+                {
+                    foreach (var item in vehicleData.Orders)
+                    {
+                        notificationServices.PublishAsync(item.Id, request.Latitude, request.Longitude);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    this.logger.LogError(ex, "Error al notificar el cambio de localizcion del vehiculo.", request);
+                }
 
                 return Task.FromResult<VehicleViewModel>(this.mapper.Map<VehicleViewModel>(vehicleData));
             }

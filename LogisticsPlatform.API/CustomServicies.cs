@@ -26,11 +26,12 @@ namespace LogisticsPlatform.API
 
             // Add IoC references.
             services.AddTransient<Application.Interfaces.IVehicleQueries, Application.Queries.VehicleQueries>();
-            services.AddScoped<Application.Interfaces.IVehicleRepository, Infrastructure.Rpositories.VehicleRepository>();
-            services.AddScoped<Application.Interfaces.IVehicleRepositoryQueries, Infrastructure.Queries.VehicleRepositoryQueries>();
+            services.AddTransient<Application.Interfaces.IVehicleRepository, Infrastructure.Rpositories.VehicleRepository>();
+            services.AddTransient<Application.Interfaces.IVehicleRepositoryQueries, Infrastructure.Queries.VehicleRepositoryQueries>();
 
             services.AddTransient<Application.Interfaces.IOrderQueries, Application.Queries.OrderQueries>();
-            services.AddScoped<Application.Interfaces.IOrderRepositoryQueries, Infrastructure.Queries.OrderRepositoryQueries>();
+            services.AddTransient<Application.Interfaces.IOrderRepositoryQueries, Infrastructure.Queries.OrderRepositoryQueries>();
+            services.AddTransient<Application.Interfaces.INotificationServices, Infrastructure.Services.NotificationServices>();
 
             // Add auto mapper
             services.AddAutoMapper(typeof(Application.Mapping.MappingProfile));
