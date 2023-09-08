@@ -50,6 +50,14 @@ namespace LogisticsPlatform.Application.Command.Vehicle
                     throw new Exception(menssage);
                 }
 
+                var orderAssigment = this.vehicleRepositoryQueries.GetByOrderId(request.OrderId);
+                if (orderAssigment != null && orderAssigment.Count() > 0)
+                {
+                    string menssage = $"El pedido {request.OrderId} ya está dado de alta en el vehiculo {orderAssigment.FirstOrDefault()?.Id}.";
+                    this.logger.LogError(menssage);
+                    throw new Exception(menssage);
+                }
+
                 vehicleData.AddOrder(orderRepo);
 
                 repository.Update(vehicleData);
