@@ -10,6 +10,6 @@ namespace LogisticsPlatform.Application.Command.Vehicle
     public class DeleteOrderVehicleCommand : IRequest<bool>
     {
         public Guid Id { get; set; }
-        public Guid ProductId { get; set; }
+        public Guid OrderId { get; set; }
     }
 }
