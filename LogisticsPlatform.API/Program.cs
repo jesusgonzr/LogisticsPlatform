@@ -3,7 +3,6 @@ using LogisticsPlatform.Infrastructure;
 using LogisticsPlatform.Infrastructure.PredefinedData;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -37,6 +36,9 @@ builder.Services.AddSwaggerGen(c =>
 // Add dependency injection
 builder.Services.AddApplication();
 
+// Add singnalR
+builder.Services.AddSignalR();
+
 var app = builder.Build();
 
 SeedData(app);
@@ -66,8 +68,15 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseRouting();
+
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<LogisticsPlatform.Infrastructure.Hubs.NotificationHub>("/locationHub");
+});
 
 app.Run();

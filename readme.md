@@ -9,6 +9,7 @@ La solución parte de que existe un sistema de pedidos donde hay que implementar 
 - LogisticsPlatform.Infrastructure. Proyecto donde se realiza la implementación a los repositorios.
 - LogisticsPlatform.API. Proyecto que expone los métodos para interactuar con la aplicación.
 - LogisticsPlatform.Test. Proyecto donde se implementa los test unitarios.
+- LogisticsPlatform.Notification.Client.Console. Proyecto cliente que implementa la escucha de los cambios de localización.
 
 ## Detalles técnicos de la solución.
 
@@ -20,6 +21,7 @@ La solución está desarrollada en .net 7, por lo que para poder ejecutarla se deb
 - Microsoft Entity Framework Core (con el paquete para ejecutar una base de datos en memoria)
 - Newtonsoft.Json
 - Swagger
+- SignalR
 
 ### Arquitectura y patrones utilizados.
 - Arquitectura DDD
@@ -48,4 +50,4 @@ De forma predeteminada se incluye lo siguiente:
 Los tres primeros números de pedidos están asignados al primer vehículo y el cuarto pedido al segundo vehículo, dejando el último número de pedido libre así como el último vehículo de la lista.
 
 ### Anotaciones
-En la actualización de la localización de un vehículo se ha realizado una aproximación a una implementación para poder notificar el cambio de posición en tiempo real, esto se puede hacer mediante un servicio como Azure Service Bus.
+Para probar la subscripción a la actualización de la localización de un vehículo/pedido, una vez compilado la solución, y esté el API levantado, vaya a ..\LogisticsPlatform.Notification.Client.Console\bin\Debug\net7.0 y busque el archivo y ejecute el archivo LogisticsPlatform.Notification.Client.Console.exe

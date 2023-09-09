@@ -32,6 +32,7 @@ namespace LogisticsPlatform.API
             services.AddTransient<Application.Interfaces.IOrderQueries, Application.Queries.OrderQueries>();
             services.AddTransient<Application.Interfaces.IOrderRepositoryQueries, Infrastructure.Queries.OrderRepositoryQueries>();
             services.AddTransient<Application.Interfaces.INotificationServices, Infrastructure.Services.NotificationServices>();
+            services.AddTransient<Infrastructure.Hubs.NotificationHub>();
 
             // Add auto mapper
             services.AddAutoMapper(typeof(Application.Mapping.MappingProfile));
